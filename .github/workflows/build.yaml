@@ -22,5 +22,8 @@ jobs:
       - name: copy assets to bin directory 
         run: cp -R dist bin/ && cp -R db bin/
 
+      - name: compress into zip files
+        run: zip uptime-linux-64.zip bin/uptime bin/dist bin/db
+
       - name: log
-        run: cd bin/ && ls -lah
+        run: ls -lah
