@@ -19,5 +19,8 @@ jobs:
       - name: build binary file
         run: npm run build
 
+      - name: copy assets to bin directory 
+        run: cp -R dist bin/ && cp -R db bin/
+
       - name: log
         run: cd bin/ && ls -lah
