@@ -22,11 +22,11 @@ jobs:
       - name: build binary file
         run: npm run build
 
-      - name: copy assets to bin directory 
-        run: cp -R dist bin/ && cp -R db bin/
+      - name: copy binary into root directory 
+        run: cp bin/uptime ./
 
       - name: compress into zip files
-        run: zip uptime.zip bin/uptime bin/dist bin/db
+        run: zip -r uptime.zip uptime dist/* db/*
 
       - name: log
         run: ls -lah
