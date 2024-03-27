@@ -14,7 +14,7 @@ jobs:
       
       - name: get tag name
         id: tag_name
-        run: echo ::set-output name=tag_name::${GITHUB_REF#refs/tags/}
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: install dependencies
         run: npm install
@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          tag_name: ${{ steps.tag_name.outputs.tag_name }}
-          release_name: Release ${{ steps.tag_name.outputs.tag_name }}
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: Release ${{ env.TAG_NAME }}
           draft: false
           prerelease: false
 
