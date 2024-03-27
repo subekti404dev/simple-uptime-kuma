@@ -1,0 +1,19 @@
+{
+  "name": "simple-uptime-kuma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build server.cjs -o ncc && pkg ncc/index.cjs -o bin/uptime"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  },
+  "dependencies": {
+    "pkg": "^5.8.1"
+  }
+}
